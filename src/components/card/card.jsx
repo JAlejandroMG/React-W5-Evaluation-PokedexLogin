@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import Modal from 'react-modal';
-import PokemonDetail from './pokemonDetail/pokemonDetail';
+import {Link} from 'react-router-dom';
 import './card.css';
 
 
@@ -17,23 +16,7 @@ import './card.css';
 }; */
 
 
-export default function Card(props) {
-  const [showModal, setShowModal] = useState(false);
-
-
-  useEffect(() => {
-    // componentDidMount
-    Modal.setAppElement("body");
-  }, []);
-
-  const openModal = () => {
-    setShowModal(true);
-  }
-
-  const closeModal = () =>{
-    setShowModal(false)
-  }
- 
+export default function Card(props) { 
   const customStyles = {
     content : {
       top                   : '50%',
@@ -49,6 +32,7 @@ export default function Card(props) {
       overflow              : 'hidden',
     }
   };
+  
 
   return (
     <div className='card-container' style={{background: `linear-gradient(to right, ${props.colors[0]}, ${props.colors[1]}`}}>
@@ -57,21 +41,26 @@ export default function Card(props) {
         <h2>{props.name[0].toUpperCase() + props.name.slice(1)}</h2>
       </div>
       <img src={props.img} alt={props.name}/>
-      <button  className="bounce" onClick={() => openModal()}>
-        <span className="D">D</span> 
-        <span className="e">e</span> 
-        <span className="t">t</span> 
-        <span className="a">a</span> 
-        <span className="i">i</span> 
-        <span className="l">l</span> 
-        <span className="s">s</span>
-      </button>
-      {
-        /* <Modal  className="modal" isOpen={state.showModal} style={customStyles}> */
-      }
-      <Modal isOpen={showModal} style={customStyles}>
-        <PokemonDetail number={props.number} name={props.name} img={props.img} closeModalFn={closeModal} colors={props.colors} />
-      </Modal>
+      <Link to={{
+                pathname: `/pokedex/${props.number}`,
+                state: {
+                  isLogged: true,
+                  number: props.number,
+                  name: props.name,
+                  img: props.img,
+                  colors: props.colors
+                }
+              }}>
+        <button  className="bounce">
+          <span className="D">D</span> 
+          <span className="e">e</span> 
+          <span className="t">t</span> 
+          <span className="a">a</span> 
+          <span className="i">i</span> 
+          <span className="l">l</span> 
+          <span className="s">s</span>
+        </button>
+      </Link>
     </div>
   )
 }

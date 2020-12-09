@@ -49,34 +49,7 @@ export default function SignUp () {
                 {/*Pokemon Logo*/}
                 <Grid container justify="center" >
                     <img src="https://www.freepnglogos.com/uploads/pok-mon-go-logo-png-30.png" alt="Pokemon Logo" width='200'/>
-                </Grid>
-                {/*First Name*/}
-                {/* {<div style={{ height: 20 }} />
-                <Grid item xs={12}>
-                <TextField
-                    autoComplete="fname"
-                    name="firstName"
-                    variant="outlined"
-                    required
-                    fullWidth
-                    id="firstName"
-                    label="First Name"
-                    autoFocus
-                />}
-                </Grid> */}
-                {/*Last Name*/}
-                {/* <div style={{ height: 20 }} />
-                <Grid item xs={12}>
-                <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    id="lastName"
-                    label="Last Name"
-                    name="lastName"
-                    autoComplete="lname"
-                />
-                </Grid> */}
+                </Grid>                
                 {/*Email*/}
                 <div style={{ height: 20 }} />
                 <Grid item xs={12}>
