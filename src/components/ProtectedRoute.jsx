@@ -4,8 +4,6 @@ import { Route } from "react-router-dom";
 //* Components
 import SignIn from './SignIn';
 
-// firebase.auth().currentUser
-
 
 export default function ProtectedRoute(props) {
   return (

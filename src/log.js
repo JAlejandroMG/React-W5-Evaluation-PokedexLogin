@@ -51,10 +51,8 @@
 
 //* Reto (Opcional):
 //{ 1. Mantén la sesión iniciada aunque el usuario recargue la página
-//!
+//! HECHO
 //[ a. https://firebase.google.com/docs/auth/web/manage-users#get_the_currently_signed-in_user
-//* Reestablecer estado user en App y actualizar estado con firebase.auth().currentUser en SignIn y en función Logout en UserData
-//* Sign in usando promesa con .then
 //{ 2. Pasar todos los componentes de clase a componentes funcionales usando hooks.
 //! HECHO
 //{ 3. Navegar entre la lista del pokedex y el detalle del Pokémon con React router, puedes tomar de ejemplo el siguiente proyecto. https://codesandbox.io/s/cool-lake-eotre

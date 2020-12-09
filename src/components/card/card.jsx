@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import './card.css';
 
@@ -17,21 +17,21 @@ import './card.css';
 
 
 export default function Card(props) { 
-  const customStyles = {
-    content : {
-      top                   : '50%',
-      left                  : '50%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      marginRight           : '-50%',
-      transform             : 'translate(-50%, -50%)',
-      width                 : '50vw',
-      height                : '70vh',
-      background            : `linear-gradient(to right, ${props.colors[0]}, ${props.colors[1]}`,
-      padding               : '20px',
-      overflow              : 'hidden',
-    }
-  };
+  // const customStyles = {
+  //   content : {
+  //     top                   : '50%',
+  //     left                  : '50%',
+  //     right                 : 'auto',
+  //     bottom                : 'auto',
+  //     marginRight           : '-50%',
+  //     transform             : 'translate(-50%, -50%)',
+  //     width                 : '50vw',
+  //     height                : '70vh',
+  //     background            : `linear-gradient(to right, ${props.colors[0]}, ${props.colors[1]}`,
+  //     padding               : '20px',
+  //     overflow              : 'hidden',
+  //   }
+  // };
   
 
   return (
