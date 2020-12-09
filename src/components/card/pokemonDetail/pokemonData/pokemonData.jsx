@@ -47,7 +47,7 @@ function PokemonData(props) {
         </div>
       </div>
     </div>
-    <button className="button-modal" onClick={props.closeModalFn}>Close details</button>
+    <button className="button-modal" onClick={props.getBackFn}>Close details</button>
   </div>
  )
 }

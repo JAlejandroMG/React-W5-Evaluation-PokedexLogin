@@ -5,7 +5,6 @@ import pokeTypes from './databases/pokeTypes';
 import pokeColors from './databases/pokeColors';
 
 
-// export default class Pokedex extends React.Component {
 export default function Pokedex() {
   const [pokemones, setPokemones] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -39,11 +38,6 @@ export default function Pokedex() {
 
   const getImage = (id) => {
     let pokemonImg = "";
-    //La imagen para el Pokemon con id 11 y nos encontramos en la segunda página
-    //0 -> {"name":"metapod","url":"https://pokeapi.co/api/v2/pokemon/11/"}
-    //          0   + 1  + (( 2 - 1 ) * 10) = 11
-    //          0   + 1  + (( 3 - 1 ) * 10) = 21
-    // let id = (index + 1) + ((this.state.currentPage - 1) * this.state.pokemonPerPage); // Se recibía index
 
     if(id < 10){
         pokemonImg = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/00${id}.png`;
@@ -69,11 +63,11 @@ export default function Pokedex() {
           })
   };
 
-  const updatePokemonPerPage = (event) => {
-    const newValue = parseInt(event.target.value);
-    setPokemonPerPage(newValue);
-    // event.preventDefault();
-  };
+  // const updatePokemonPerPage = (event) => {
+  //   const newValue = parseInt(event.target.value);
+  //   setPokemonPerPage(newValue);
+  //   // event.preventDefault();
+  // };
 
 
   return (

@@ -31,7 +31,7 @@
 //[ a. https://reactrouter.com/web/api/Hooks/usehistory – redireccionar con un el hook useHistory
 //! HECHO
 //[ b. https://reactrouter.com/web/example/auth-workflow – redireccionar con el componente Redirect
-//*FALTA https://reactrouter.com/web/example/auth-workflow
+//+ https://reactrouter.com/web/example/auth-workflow Redirect es para renderizado condicional
 //{ 12. Protege la ruta para que solo usuarios autenticados puedan acceder a la ruta/pokedex, en caso de que no tenga una sesión iniciada deberás mostrar un mensaje de que necesita iniciar sesión o simplemente puede redireccionar al usuario hacía la ruta de inicio de sesión.
 //! HECHO
 //{ 13. Coloca la aplicación que hiciste en la actividad no.4 bajo la ruta de pokedex.
@@ -44,17 +44,21 @@
 //[ c. Pokedex
 //! HECHO
 //{ 15. En el menú tendrás que colocar un componente para mostrar los datos del usuario cuando haya iniciado sesión correctamente (nombre e imagen de perfil), en este punto tendrás que usar el renderizado condicional para mostrar el componente únicamente cuando el usuario haya iniciado sesión.
-//*FALTA la parte de facebook
+//! HECHO
 //{ 16. Habilitar el menú contextual para el componente del punto anterior para mostrar la opción de cerrar sesión y redireccionar al usuario al inicio una vez que haya cerrado sesión.
 //[ a. https://firebase.google.com/docs/auth/web/password-auth#next_steps
  //! HECHO
 
 //* Reto (Opcional):
 //{ 1. Mantén la sesión iniciada aunque el usuario recargue la página
-//[ a. https://firebase.google.com/docs/auth/web/auth-state-persistence
+//!
+//[ a. https://firebase.google.com/docs/auth/web/manage-users#get_the_currently_signed-in_user
+//* Reestablecer estado user en App y actualizar estado con firebase.auth().currentUser en SignIn y en función Logout en UserData
+//* Sign in usando promesa con .then
 //{ 2. Pasar todos los componentes de clase a componentes funcionales usando hooks.
 //! HECHO
 //{ 3. Navegar entre la lista del pokedex y el detalle del Pokémon con React router, puedes tomar de ejemplo el siguiente proyecto. https://codesandbox.io/s/cool-lake-eotre
+//! HECHO
 
 
 //+ Entrega en classroom. Al final deberás subir tu solución a github y a netlify, al subir tu aplicación a netlify tendrás que agregar el dominio a firebase para que te permita iniciar sesión desde netlify.

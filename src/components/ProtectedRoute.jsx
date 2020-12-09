@@ -1,7 +1,11 @@
 import React from "react";
 import { Route } from "react-router-dom";
+// import firebase from '../firebase/config';
 //* Components
 import SignIn from './SignIn';
+
+// firebase.auth().currentUser
+
 
 export default function ProtectedRoute(props) {
   return (
@@ -10,9 +14,6 @@ export default function ProtectedRoute(props) {
       (props.children) :
       (
         <SignIn setUserFn={props.setUserFn} />
-        /* <>
-          <h2>No tienes acceso a esta ruta</h2>
-        </> */
       )}
     </Route>
   );

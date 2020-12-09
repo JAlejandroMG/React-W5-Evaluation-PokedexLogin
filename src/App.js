@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {
   BrowserRouter as Router,
-  // Link,
   Switch,
   Route
 } from 'react-router-dom';
@@ -11,14 +10,11 @@ import Header from './components/Header';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import Pokedex from './Pokedex';
+import PokemonDetail from './components/card/pokemonDetail/pokemonDetail';
 //* PrivateRoute
 import ProtectedRoute from './components/ProtectedRoute';
 
-//!Firebase
-// import firebase, {auth} from "./firebase/config";
 
-
-//! Firebase
 export default function App() {
   const [user, setUser] = useState(false);
 
@@ -34,9 +30,12 @@ export default function App() {
           <Route path="/registro">
             <SignUp />
           </Route>
-          <ProtectedRoute path="/pokedex" user={user} setUserFn={setUser}>
+          <ProtectedRoute path="/pokedex" user={user} setUserFn={setUser} exact>
             <Pokedex />
           </ProtectedRoute>
+          <Route path="/pokedex/:id">
+            <PokemonDetail />
+          </Route>
           <Route path="*" exact>
             <h2>404 Not Found</h2>
           </Route>
@@ -45,32 +44,3 @@ export default function App() {
     </div>
   )
 }
-
-
-    //! Firebase
-    // let provider =  new firebase.auth.GoogleAuthProvider();
-
-    //! Firebase
-    // let facebookProvider = new firebase.auth.FacebookAuthProvider();
-
-    //! Firebase
-    // const signInGoogle = () => {
-    //   auth.signInWithPopup(provider).then(result =>{
-    //     let token = result.credential.accesToken;
-    //     let user = result.user;
-    //     console.log(user);
-    //   }).catch(error => {
-    //     console.log(error);
-    //   })
-    // }
-
-    //!Firebase
-    // const signInFacebook = () => {
-    //   auth.signInWithPopup(facebookProvider).then(result =>{
-    //     let token = result.credential.accesToken;
-    //     let user = result.user;
-    //     console.log(user);
-    //   }).catch(error => {
-    //     console.log(error);
-    //   })
-    // }
