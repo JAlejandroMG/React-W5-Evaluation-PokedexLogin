@@ -6,7 +6,6 @@ import './pokemonDetail.css';
 export default function PokemonDetail() {
   const location = useLocation();
   const history = useHistory();
-  console.log(history);
   const [showData, setShowData] = useState(false);
   const [pokemonStats, setPokemonStats] = useState([]);
   const [pokemonTypes, setPokemonTypes] = useState([]);
@@ -37,7 +36,6 @@ export default function PokemonDetail() {
   useEffect(() => {
     // componentDidMount
     const url = 'https://pokeapi.co/api/v2/pokemon/';
-    console.log(location.state.number);
     const number = location.state.number;
     //Consumir la API de pokeapi
     const getPokemonDetails = async () => {

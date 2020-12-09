@@ -8,8 +8,10 @@ import pokeColors from './databases/pokeColors';
 export default function Pokedex() {
   const [pokemones, setPokemones] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [pokemonPerPage, setPokemonPerPage] = useState(12);
-  const [pokemonLimit, setPokemonLimit] = useState(893);
+  // const [pokemonPerPage, setPokemonPerPage] = useState(12);
+  // const [pokemonLimit, setPokemonLimit] = useState(893);
+  const pokemonPerPage = 12;
+  const pokemonLimit = 893;
   // } //Hay un máximo de 893 imágenes de Pokemon disponibles y pokemonPerPage debe ser múltiplo de 3
 
 
