@@ -55,7 +55,7 @@ export default function SignIn (props) {
         history.push("/pokedex");
       }
     });
-
+    // eslint-disable-next-line
   }, []);
 
 

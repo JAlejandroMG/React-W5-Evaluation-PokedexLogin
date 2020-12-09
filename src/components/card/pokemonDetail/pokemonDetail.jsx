@@ -48,6 +48,7 @@ export default function PokemonDetail() {
       openPokemonData();
     }
     getPokemonDetails();
+    // eslint-disable-next-line
   }, []);
 
   const getBack = () => {
