@@ -51,7 +51,6 @@ export default function SignIn (props) {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         props.setUserFn(user);
-        console.log(user);
         history.push("/pokedex");
       }
     });

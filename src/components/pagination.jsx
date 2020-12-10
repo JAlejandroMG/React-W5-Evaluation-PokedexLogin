@@ -6,10 +6,8 @@ import './pagination.css';
     //Si solicitamos la página 10 mostrariamos [5, 6, 7, 8, 9, 10, 11, 12, 13, 14] ( |10 - 5| |10 + 4| )
     //Si solicitamos la página 14 mostrariamos [9, 10, 11, 12, 13, 14, 15, 16, 17, 18] ( |14 - 5 | |14 + 4| )
 function Pagination(props){
-    // const pokemonArray = Array.apply(null, Array(10)).map(() => {})
     const currentPage = props.currentPage;
-    let pageLimit = 0;
-    (props.pokemonLimit % props.pokemonPerPage) === 0 ? pageLimit = props.pokemonLimit/props.pokemonPerPage : pageLimit = Math.floor(props.pokemonLimit/props.pokemonPerPage) + 1;
+    const pageLimit = props.pageLimit;
     const pages = [];
 
     if(currentPage <= 6){

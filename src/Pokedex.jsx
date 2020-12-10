@@ -8,6 +8,7 @@ import pokeColors from './databases/pokeColors';
 export default function Pokedex() {
   const [pokemones, setPokemones] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [pageLimit, setPageLimit] = useState(0);
   // const [pokemonPerPage, setPokemonPerPage] = useState(12);
   // const [pokemonLimit, setPokemonLimit] = useState(893);
   const pokemonPerPage = 12;
@@ -28,8 +29,11 @@ export default function Pokedex() {
       } catch(error) {
           console.log(error.message);
       }
+
+      (pokemonLimit % pokemonPerPage) === 0 ? setPageLimit(pokemonLimit/pokemonPerPage) : setPageLimit((Math.floor(pokemonLimit/pokemonPerPage) + 1));
     };
     getPokemones();
+    // eslint-disable-next-line
   }, []);
 
 
@@ -52,17 +56,25 @@ export default function Pokedex() {
     return pokemonImg;
   }
 
-  const fetchPage = (requestPage) => {
-    setCurrentPage(requestPage);
-    //1. Completar el método para poder obtener los pokemones dependiendo de la página solicitada
-    const limit = pokemonPerPage;
-    const url = 'https://pokeapi.co/api/v2/pokemon';
-    fetch(`${url}?limit=${limit}&offset=${(requestPage - 1) * pokemonPerPage}`)
-          .then(response => response.json())
-          .then(data => setPokemones(data.results))
-          .catch( error => {
-            console.log(error);
-          })
+  const fetchPage = async (requestPage) => {
+    try {
+      //1. Completar el método para poder obtener los pokemones dependiendo de la página solicitada
+      let limit = 0;
+      if(requestPage === pageLimit) {
+        limit = pokemonLimit % pokemonPerPage;
+      } else {
+         await setCurrentPage(requestPage);
+        limit = pokemonPerPage;
+      }
+
+      const url = 'https://pokeapi.co/api/v2/pokemon';
+      const response = await fetch(`${url}?limit=${limit}&offset=${(requestPage - 1) * pokemonPerPage}`);
+      const data = await response.json();
+      await setPokemones(data.results);
+      await setCurrentPage(requestPage);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // const updatePokemonPerPage = (event) => {
@@ -85,7 +97,6 @@ export default function Pokedex() {
               </form>
             </div> */
             }
-            {/* <img src='./img/pokemon.png'/> */}
             <div className="pokedex-header-img"></div>
           </div>
           <div className="pokedex-container">
@@ -109,7 +120,7 @@ export default function Pokedex() {
             }
           </div>
           <div className="pokedex-pagination">
-            <Pagination currentPage={currentPage} pokemonPerPage={pokemonPerPage} pokemonLimit={pokemonLimit} fetchPageFn={fetchPage} />
+            <Pagination currentPage={currentPage} pokemonPerPage={pokemonPerPage} pokemonLimit={pokemonLimit} fetchPageFn={fetchPage} pageLimit={pageLimit}/>
           </div>
         </div>
       </div>
